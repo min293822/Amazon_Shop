@@ -1,0 +1,272 @@
+*,
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluide {
+  width: 1000px;
+  padding: 0;
+}
+
+.offcanvas-body{
+  font-size: 20px;
+  font-weight: bold;
+  background: #000000a3;
+}
+
+.offcanvas-body a{
+  text-decoration-line: none;
+  color: #fff;
+}
+
+.topHead {
+  padding: 20px 10px 20px 10px;
+  width: 100%;
+  background: rgba(0,0,0,0.814);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  color: #fff;
+  font-family: Arial, Sans-Serif;
+}
+
+.search {
+  margin-left: 10px;
+  width: 40%;
+}
+
+.search-input {
+  font-size: 20px;
+  width: 100%;
+  padding: 10px 10px 10px 20px;
+  flex: 1;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.return, .cart, .signin, button {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.921);
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.signin, .cart, .location label{
+  max-width: 150px;
+}
+
+#language{
+  border: none;
+  max-width: 100px;
+  background: rgba(0,0,0,0.814);
+  font-size: 17px;
+  height: 45px;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.return, .cart {
+  margin-left: -10px;
+  padding: 10px;
+}
+
+.return{
+  max-width: 100px;
+}
+
+span {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.location {
+  width: 90px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.nav{
+  padding: 20px 0 0px 0px;
+  background: #000;
+  width: 1000px;
+}
+
+.nav ul{
+  display: flex;
+  list-style-type: none;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.nav ul li{
+  margin-left: 20px;
+}
+
+#opensidebar{
+  background: #000;
+  color: #fff;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0;
+}
+
+.nav ul li a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-family: Arial;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hamburger-icon {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+#opensidebar p{
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: Arial;
+}
+
+.hamburger-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.card-img-top{
+  max-width: 100%;
+}
+
+.img{
+  height: 350px;
+  overflow: scroll;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-card-size{
+  border: 1px solid #00000071;
+  padding: 10px;
+  margin-top: 10px;
+  height: 600px;
+}
+
+.card-title{
+  height: 30px;
+  margin-bottom: 30px;
+  margin-top: 5px;
+}
+
+.btn-primary:hover{
+  background: rgb(21,99,255);
+}
+
+.card-text:lastchild{
+  height: 50px;
+  overflow: scroll;
+}
+
+hr{
+  margin: 0;
+}
+
+.offcanvas-body ul li{
+  display: flex;
+}
+
+.footerl{
+  width: 100%;
+  background: #252525;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.to-top{
+  width: 100%;
+  height: 100px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.to-top #to-top{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  box-shadow: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 10px;
+  color: #fff;
+  background: #002844;
+}
+
+.to-top #to-top:hover{
+  background: #003c67;
+}
+
+.footer-content{
+  background: #001728;
+  font-size: 20px;
+  font-family: Arial;
+  height: 100px;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.foo-flex{
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Arial;
+  padding: 20px 0px 20px 0px;
+}
+
+.foo-flex a{
+  color: #fff;
+  text-decoration-line: none;
+  margin-top: 10px;
+}
+
+.foot{
+  background: #00090f;
+  text-align: center;
+  height: 100px;
+  margin: 0;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+}
