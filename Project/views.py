@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Watches, Clothes, Pants, Sneakers, AllProducts, UserInfo
+from .models import Watches, Clothes, Pants, Sneakers, AllProducts
 import random
 
 def Cart(request):
@@ -14,11 +14,9 @@ def Home(request):
   pants = Pants.objects.all()
   sneakers = Sneakers.objects.all()
   allproducts = list(AllProducts.objects.all())
-  user = UserInfo.objects.all()
   random.shuffle(allproducts)
 
   context = {
-        'user':user,
     'watches':watches,
     'clothes':clothes,
     'pants':pants,

@@ -43,14 +43,14 @@
   <ul>
     <h5>Account & Sign in</h5>
     <hr>
-    <li><a href="#" id="sign_in">Sign In</a></li>
-    <li><a href="#" id="signup">Sign Up</a></li>
+    <li><a href="Login" id="sign_in">Sign In</a></li>
+    <li><a href="Login" id="signup">Sign Up</a></li>
   </ul>
   <ul>
     <h5>Help</h5>
     <hr>
     <li><a href="#" id="customservice">Customer Services</a></li>
-    <li><a href="#" id="return">Return</a></li>
+    <li><a href="Return" id="return">Return</a></li>
     <li><a href="#" id="shoping_issues">Shopping Issues</a></li>
     <li><a href="#" id="contact_us">Contact Us</a></li>
     <li><a href="#" id="about">About</a></li>
@@ -76,13 +76,20 @@
       </select>
       </div>
       <div class="signin">
+      <a href="Login">
         <button>Hello, sign in <span>Account & List</span></button>
+      </a>
       </div>
       <div class="return">
-        <button >Returns & <span>Orders</span></button>
+        <a href="Return">
+          <button >Returns & <span>Orders</span></button>
+        </a>
       </div>
       <div class="cart">
-        <button >0<span> Cart</span></button>
+        <a href="Cart">
+          <button >0<span> Cart</span></button>
+        </a>
+        
       </div>
       </div>
     </div>
@@ -119,7 +126,7 @@
             <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
           </div>
           <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
+            <h5 class="card-title"id="product-name">{{ product.name }}</h5>
             <p class="card-text">{{ product.price }}</p>
             <p class="card-text">{{ product.stock }} stock left</p>   
             <p class="card-text">{{ product.advertise }}</p>
