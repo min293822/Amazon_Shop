@@ -14,10 +14,11 @@ def Home(request):
   pants = Pants.objects.all()
   sneakers = Sneakers.objects.all()
   allproducts = list(AllProducts.objects.all())
-  
+  user = UserInfo.objects.all()
   random.shuffle(allproducts)
 
   context = {
+        'user':user,
     'watches':watches,
     'clothes':clothes,
     'pants':pants,
