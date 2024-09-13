@@ -43,8 +43,8 @@
   <ul>
     <h5>Account & Sign in</h5>
     <hr>
-    <li><a href="Login" id="sign_in">Sign In</a></li>
-    <li><a href="Login" id="signup">Sign Up</a></li>
+    <li><a href="Account" id="sign_in">Sign In</a></li>
+    <li><a href="Account" id="signup">Sign Up</a></li>
   </ul>
   <ul>
     <h5>Help</h5>
@@ -70,13 +70,13 @@
         <input class="search-input" type="search" placeholder="Search" aria-label="Search" >
       </div>
       <div class="language">
-        <select id="language">
-        <option value="English">English</option>
-        <option value="Myanmar">Myanmar</option>
+        <select name="language" id="language" >
+        <option value="en">English</option>
+        <option value="my">Myanmar</option>
       </select>
       </div>
       <div class="signin">
-      <a href="Login">
+      <a href="Account">
         <button>Hello, sign in <span>Account & List</span></button>
       </a>
       </div>
@@ -118,6 +118,7 @@
 
   <!-- Main Container -->
   <div class="container-fluid">
+    
     <div class="row">
       {% for product in allproducts %}
       <div class="col-md-4" id="card" data-product-name="{{product.name}}">
@@ -136,6 +137,7 @@
       </div>
       {% endfor %}
     </div>
+
   </div>
 
   <!-- Footer Section -->

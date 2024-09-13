@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.querySelector(".search-input"); 
   const cartBtns = document.querySelectorAll('.btn-primary');
   const numOfCart = document.getElementById('numCart');
-  const cards = Array.from(document.querySelectorAll('#card')); 
+  const cards = Array.from(document.querySelectorAll('#card'));
+
 
   searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase();
@@ -11,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const sortedCards = cards.sort((a, b) => {
       const cardA = a.dataset.productName.toLowerCase();
       const cardB = b.dataset.productName.toLowerCase();
-      const matchA = cardA.includes(query) ? -1 : 1;
-      const matchB = cardB.includes(query) ? -1 : 1;
+      const matchA = cardA.includes(query) ? -1 : 0;
+      const matchB = cardB.includes(query) ? -1 : 0;
       return matchA - matchB;
     });
 

@@ -2,11 +2,13 @@ from django.shortcuts import render
 from .models import Watches, Clothes, Pants, Sneakers, AllProducts
 import random
 
+
+
 def Cart(request):
   return render(request, 'Project/Cart.html')
 
-def Login(request):
-  return render(request, 'Project/Login.html')
+def Account(request):
+  return render(request, 'Project/Account.html')
   
 def Home(request):
   watches = Watches.objects.all()
