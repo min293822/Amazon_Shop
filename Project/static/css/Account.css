@@ -127,6 +127,7 @@ a{
   font-family: Times New Roman;
   width: 100%;
   background: #fff;
+  flex-direction: column;
 }
 
 #sex label{
@@ -146,7 +147,7 @@ a{
   font-family: Arial;
   font-size: 20px;
   font-weight: bold;
-  padding: 20px;
+  padding: 20px 0px 10px 20px;
   margin: 20px;
   border: none;
   width: 60%;
@@ -155,13 +156,6 @@ a{
   outline: none;
   background: #fff;
   border-bottom: 1px solid #000;
-}
-
-#popup-signup form{
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 }
 
 #namebutton, #birthbutton, #emailbutton, #sexbutton, #passbutton{
@@ -177,10 +171,10 @@ a{
   border-radius: 10px;
   margin: 20px 20px 20px 20px;
   position: relative;
-  left: 620px;
+  left: 670px;
 }
 
-#birth-date form .inputs input{
+#birth-date .inputs input{
   width: 25%;
   margin-right: 10px;
 }

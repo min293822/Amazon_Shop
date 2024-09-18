@@ -13,6 +13,7 @@ class Command(BaseCommand):
                     color=watch.color,
                     price=watch.price,
                     stock=watch.stock,
+                    discount=watch.discount,
                     advertise=watch.advertise,
                     image_url=watch.image_url
                 )
@@ -27,6 +28,7 @@ class Command(BaseCommand):
                     size=cloth.size,
                     price=cloth.price,
                     stock=cloth.stock,
+                    discount=cloth.discount,
                     advertise=cloth.advertise,
                     image_url=cloth.image_url
                 )
@@ -41,6 +43,7 @@ class Command(BaseCommand):
                     size=pant.size,
                     price=pant.price,
                     stock=pant.stock,
+                    discount=pant.discount,
                     advertise=pant.advertise,
                     image_url=pant.image_url
                 )
@@ -55,7 +58,9 @@ class Command(BaseCommand):
                     size=sneaker.size,
                     price=sneaker.price,
                     stock=sneaker.stock,
-                    advertise=sneaker.advertise,
+                    discount=sneaker.discount,
+                    advertise=sneaker
+                  .advertise,
                     image_url=sneaker.image_url
                 )
         
