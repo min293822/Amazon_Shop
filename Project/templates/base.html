@@ -26,11 +26,11 @@
     <h5>User Details</h5>
    <hr>
    <li>
-    <label for="email">Email:</label>
+    <label>Email:</label>
     <div id="email"></div>
    </li>
    <li>
-    <label for="address">Address:</label>
+    <label>Address:</label>
     <div id="address"></div>
    </li>
   </ul>
@@ -45,8 +45,8 @@
   <ul>
     <h5>Account & Sign in</h5>
     <hr>
-    <li><a data-account-url="{% url 'account' %}" id="sign_in_home_side">Sign In</a></li>
-    <li><a data-account-url="{% url 'account' %}" id="sign_up_home_side">Sign Up</a></li>
+    <li><a data-account-url-in="{% url 'account' %}" id="sign_in_home_side">Sign In</a></li>
+    <li><a data-account-url-up="{% url 'account' %}" id="sign_up_home_side">Sign Up</a></li>
   </ul>
   <ul>
     <h5>Help</h5>
@@ -66,11 +66,11 @@
     <h2>Amazon</h2>
     <div class="d-flex align-items-center">
       <div class="location">
-        <label for="location" >Deliver to</label>
+        <label>Deliver to</label>
         <span id="location">Myanmar</span>
       </div>
       <div class="search">
-        <input class="search-input" type="search" placeholder="Search" aria-label="Search" >
+        <input class="search-input" type="search" placeholder="Search" aria-label="Search" name="search">
       </div>
       <div class="language">
         <select name="language" id="language" >
@@ -79,17 +79,17 @@
       </select>
       </div>
       <div class="signin">
-      <a href="Account">
+      <a href="http://127.0.0.1:8000/Account/">
         <button>Hello, sign in <span>Account & List</span></button>
       </a>
       </div>
       <div class="return">
-        <a href="Return">
+        <a href="http://127.0.0.1:8000/Return/">
           <button >Returns & <span>Orders</span></button>
         </a>
       </div>
       <div class="cart">
-        <a href="Cart">
+        <a href="http://127.0.0.1:8000/Cart/">
           <button ><div id="numCart">0</div>Cart</button>
         </a>
         
@@ -119,9 +119,12 @@
     </div>
 
   <!-- Product Container -->
+
 {% block content %}
 <!-- contents will appear here -->
 {% endblock %}
+  
+
 
   <!-- Footer Section -->
 <div class="footerl">
@@ -141,8 +144,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="{% static 'js/Home.js' %}"></script>
-<script src="{% static 'js/Account.js' %}"></script>
- <script src="{% static 'js/ProductDetails.js' %}"></script>
+ <script src="{% static 'js/Base.js' %}"></script>
 </body>
 </html>

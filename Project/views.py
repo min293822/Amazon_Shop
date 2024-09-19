@@ -2,7 +2,8 @@ from django.shortcuts import render
 from .models import Watches, Clothes, Pants, Sneakers
 import random
 
-
+def Return(request):
+  return render(request, 'Project/Return.html')
 
 def Cart(request):
   return render(request, 'Project/Cart.html')

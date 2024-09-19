@@ -4,7 +4,7 @@
 
 {% block content %}
  
-  <div id="noCart">
+  <div id="noCart" class="d-none">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAiQrWU1_XPl-elP1fso3jrcZDEk_d4x-wlg&s" alt="noCartImage">
    <div id="content">
     <h3>You don't have any cart!</h3>
@@ -16,6 +16,29 @@
    </a>
  </div>
  
- <script src="{% static 'js/Cart.js' %}"></script>
+  <div id="haveCart" class="d-none">
+   <table id="cart-table">
+    <thead>
+     <tr>
+      <th >No.</th>
+      <th class="hName">Name</th>
+      <th >Size</th>
+      <th class="hame">Color</th>
+      <th >Price</th>
+      <th>Amount</th>
+      <th class="hame">Total</th>
+     </tr>
+    </thead>
+    <tbody id="tbody">
+     <!-- table data will appear -->
+    </tbody>
+       <tr id="order">
+       <td colspan="5" ><a href="Order"><button id="orderbtn">Order</button></a></td>
+       <td>Total:</td>       
+       <td id="total">$ 0.00</td>
+       </tr>
+   </table>
+  </div>
+
 {% endblock %}
 

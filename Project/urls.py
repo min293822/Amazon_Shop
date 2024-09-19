@@ -5,5 +5,6 @@ urlpatterns = [
   path("", views.Products),
   path("Account/", views.Account, name="account"),
   path("Cart/", views.Cart),
-  path("Product/", views.ProductDetails, name="product")
+  path("Return/", views.Return),
+  path("Product/", views.ProductDetails, name="product"),
   ]
