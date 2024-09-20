@@ -24,7 +24,22 @@ document.addEventListener("DOMContentLoaded", () => {
   sizes.forEach(size => {
     size.innerHTML = size.innerHTML ? "Size - " + size.innerHTML : "Size - none";
   });
-
+  
+  for(let i=0; i<discounts.length; i++){
+    const paren = discounts[i].parentElement;
+    const discoun = parseFloat(discounts[i].innerHTML);
+    const grandpa = paren.parentElement;
+    const grandprice = grandpa.querySelector(".price");
+    if(discoun===0){
+      if(paren) {
+        paren.style.background = "#fff";
+        paren.style.background ="transparent";
+        paren.style.color ="transparent";
+      }
+     if(grandprice) grandprice.style.display = "none";
+    }
+  };
+  
   disOuts.forEach((disOut, index) => {
     const discount = parseFloat(discounts[index].innerHTML);
     const price = parseFloat(prices[index].innerHTML.replace("$ ", ""));
@@ -117,8 +132,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+  const noCart = document.getElementById("noCart");
+ const haveCart = document.getElementById("haveCart");
+ console.log(numOfCart.textContent);
+ if(numOfCart.textContent>0){
+   haveCart.classList.remove("d-none");
+ } else if(numOfCart.textContent=0){
+  noCart.classList.remove("d-none");
+ }
+
+  
   function updateTable() {
-    const tbody = document.querySelector("#cart-table #tbody");
+    const tbody = document.querySelector("#tbody");
     let totalsum = 0;
     const check = sessionStorage.getItem("datas");
     const datas = check ? JSON.parse(check) : [];
@@ -150,16 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } 
   }
 
-const noCart = document.getElementById("noCart");
- const haveCart = document.getElementById("haveCart");
- 
- if(numOfCart.textContent>0){
-   haveCart.classList.remove("d-none");
- } else{
-   noCart.classList.remove("d-none");
- }
-
-  updateTable();
+updateTable();
 
   // Scroll to top button
   document.getElementById("to-top").addEventListener('click', () => {
@@ -175,7 +191,7 @@ const noCart = document.getElementById("noCart");
   cardsCustom.forEach(card => {
     card.addEventListener('click', (event) => {
       const cartBtn = card.querySelector(".btn-primary");
-      if (event.target !== cartBtn && !cartBtn.contains(event.target)) {
+      if (event.target !== cartBtn){
         const title = card.querySelector(".card-title").innerHTML;
         const img = card.querySelector(".card-img-top");
         const price = card.querySelector(".price").innerHTML;
@@ -196,7 +212,7 @@ const noCart = document.getElementById("noCart");
 
   // Product Detail Page Display
   const data = sessionStorage.getItem("datas");
-  const datas = data ? JSON.parse(data) : null;
+  const datas = JSON.parse(data);
 
   if (datas) {
     const titleDetail = document.getElementById("titleDetail");
