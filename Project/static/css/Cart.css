@@ -55,7 +55,18 @@ table, th, td {
 
 th{
   padding: 10px;
-  width: 12%;
+  width: 15%;
+}
+
+.amo{
+  width: 300px;
+}
+
+.amount{
+  display: flex;
+  width: 300px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 th:first-child{
@@ -85,4 +96,8 @@ tr td a #orderbtn{
 
 tr td a #orderbtn:hover{
   background: #00137a;
+}
+
+.decrease-btn, .increase-btn{
+  background: #0022dc;
 }

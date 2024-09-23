@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
   <div class="container-fluid">
     
@@ -18,8 +18,8 @@
             <p class="card-text color">Color - {{ item.product.color }}</p>
             <p class="card-text size">{{ item.product.size }}</p>
             <div class="dis">
-            <p class="card-text price">{{ item.product.price }} </p>
-            <p class="card-text disOut"></p>
+            <p class="card-text price">$ {{ item.product.price }} </p>
+            <p class="card-text disOut">$ {{ item.product.discounted_price }}</p>
             </div>
             <p class="card-text stock">{{ item.product.stock }} stock left</p>   
             <p class="card-text advertise">{{ item.product.advertise }}</p>
@@ -138,5 +138,5 @@
     </div>
   </div>
   
-  
+   <script src="{% static 'js/Base.js' %}"></script>
 {% endblock %}

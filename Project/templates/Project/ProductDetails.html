@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
 <div class="productDetail">
@@ -9,8 +9,12 @@
   <div class="bodyDetail">
     <h4 id="titleDetail"></h4>
     <p id="colorDetail"></p>
-    <p id="sizeDetail"></p>    
-    <p id="priceDetail"></p>
+    <p id="sizeDetail"></p>
+    <p id="discountOut"></p>
+    <div class="discountContainer">
+     <p id="priceDetail"></p>     
+     <p id="discountDetail"></p>  
+    </div>
     <p id="stockDetail"></p>    
     <p id="advertiseDetail"></p>
   </div>
@@ -19,6 +23,7 @@
     <a href="http://127.0.0.1:8000/"><button id="btnack">Back to Page</button></a>
   </div>
 </div>
+
 
 <div id="related">
  <h2>Related Products</h2>
@@ -30,7 +35,7 @@
           <div class="img">
             <img src="{{ sneaker.image_url }}" class="card-img-top" alt="{{ sneaker.name }}">
           </div>
-          <div class="disco">
+          <div class="discoun">
        <span class="card-text discount">{{ sneaker.discount }}</span>   
           </div>
           <div class="card-body">
@@ -38,8 +43,8 @@
             <p class="card-text">Color - {{ sneaker.color }}</p>
             <p class="card-text">Size - {{ sneaker.size }}</p>
             <div class="dis">
-            <p class="card-text price">{{ sneaker.price }} </p>
-            <p class="card-text disOut"></p>
+            <p class="card-text price">$ {{ sneaker.price }} </p>
+            <p class="card-text discounted_price">$ {{sneaker.discounted_price}} </p>
             </div>
             <p class="card-text stock">{{ sneaker.stock }} stock left</p>   
             <p class="card-text advertise">{{ sneaker.advertise }}</p>
@@ -62,10 +67,11 @@
           </div>
           <div class="card-body">
             <h5 class="card-title" id="product-name">{{ watch.name }}</h5>
+            <p class="card-text sizeWatch"></p>
             <p class="card-text">Color - {{ watch.color }}</p>
             <div class="dis">
-            <p class="card-text price">{{ watch.price }} </p>
-            <p class="card-text disOut"></p>
+            <p class="card-text price">$ {{ watch.price }} </p>
+            <p class="card-text disOut">$ {{watch.discounted_price}}</p>
             </div>
             <p class="card-text stock">{{ watch.stock }} stock left</p>   
             <p class="card-text advertise">{{ watch.advertise }}</p>
@@ -91,8 +97,8 @@
             <p class="card-text">Color - {{ pant.color }}</p>
             <p class="card-text">Size - {{ pant.size }}</p>
             <div class="dis">
-            <p class="card-text price">{{ pant.price }} </p>
-            <p class="card-text disOut"></p>
+            <p class="card-text price">$ {{ pant.price }} </p>
+            <p class="card-text disOut">$ {{pant.discounted_price}}</p>
             </div>
             <p class="card-text stock">{{ pant.stock }} stock left</p>   
             <p class="card-text advertise">{{ pant.advertise }}</p>
@@ -118,8 +124,8 @@
             <p class="card-text">Color - {{ cloth.color }}</p>
             <p class="card-text">Size - {{ cloth.size }}</p>
             <div class="dis">
-            <p class="card-text price">{{ cloth.price }} </p>
-            <p class="card-text disOut"></p>
+            <p class="card-text price">$ {{ cloth.price }} </p>
+            <p class="card-text disOut">$ {{cloth.discounted_price}}</p>
             </div>
             <p class="card-text stock">{{ cloth.stock }} stock left</p>   
             <p class="card-text advertise">{{ cloth.advertise }}</p>
@@ -129,9 +135,6 @@
       </div>
       {% endfor %}
     </div>
-
 </div>
-
- <script src="{% static 'js/Base.js' %}"></script>
-
+   <script src="{% static 'js/ProductDetails.js' %}"></script>
 {% endblock %}
