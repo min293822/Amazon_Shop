@@ -36,12 +36,12 @@ discounts.forEach(discount =>
 
 const cartBtns = document.querySelectorAll('.btn-primary');
 
-for (let i = 0; i < cartBtns.length; i++) {
-  cartBtns[i].addEventListener("click", () => {
-    const numCount = parseFloat(numOfCart.innerHTML) + (1/2);
+cartBtns.forEach(btn =>{
+  btn.addEventListener("click", () => {
+    const numCount = Math.round(parseInt(numOfCart.innerHTML) + 1);
     numOfCart.innerHTML = numCount;
 
-    const parentBtn = cartBtns[i].parentElement;
+    const parentBtn = btn.parentElement;
     const name = parentBtn.querySelector(".card-title").innerHTML;
     const disOut = parentBtn.querySelector('.disOut').innerHTML;
     const disOutt = parseFloat(disOut.replace("$ ", "")).toFixed(1);
@@ -51,13 +51,13 @@ for (let i = 0; i < cartBtns.length; i++) {
       alert("Invalid discount value");
     } else {
       let currentItem = [name, disOutt, amount];
-      let check = localStorage.getItem("cartTable");  // Consistent key
+      let check = localStorage.getItem("cartTable");
       const cartTable = check ? JSON.parse(check) : [];
 
       let existingItem = cartTable.find(item => item[0] === currentItem[0]);
 
       if (existingItem) {
-        existingItem[2] += (1/2);  // Update amount
+        existingItem[2] = Math.floor(parseInt(existingItem[2]) + 1); 
       } else {
         cartTable.push(currentItem);
       }
@@ -65,7 +65,7 @@ for (let i = 0; i < cartBtns.length; i++) {
       localStorage.setItem("cartTable", JSON.stringify(cartTable));
     }
   });
-}
+});
 
 const productRow = document.getElementById('product-row');
   const sneakerRow = document.getElementById("sneaker-row");

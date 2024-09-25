@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateLocalStorage(cartTable) {
     localStorage.setItem("cartTable", JSON.stringify(cartTable));
-    table();  // Re-render the table
+    table(); 
   }
 
   function table() {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     datas.forEach((item, index) => {
-      const [name, disOutt, amount] = item; // Default size and color to "N/A"
+      const [name, disOutt, amount] = item; 
       const priced = parseFloat(disOutt);
       const total = priced * amount;
       totalsum += total;
@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${tNo}</td>
         <td>${name}</td>
         <td>$ ${priced.toFixed(2)}</td>
-        <td>
-          <button class="decrease-btn" data-index="${index}">-</button>
-          ${amount}
-          <button class="increase-btn" data-index="${index}">+</button>
+        <td class="amoun">
+          <a class="btnDecrease btn-primary" data-index="${index}">-</a>
+          ${Math.floor(amount)}
+          <a class="btnIncrease btn-primary" data-index="${index}">+</a>
         </td>
         <td>$ ${total.toFixed(2)}</td>
       `;
@@ -48,23 +48,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (totalAmount) {
       totalAmount.innerHTML = "$ " + totalsum.toFixed(2);
     }
-
-    // Add event listeners for increase and decrease buttons
-    document.querySelectorAll('.increase-btn').forEach(button => {
+    
+    document.querySelectorAll('.btnIncrease').forEach(button => {
+      button.style.fontSize = "20px";
+      button.style.padding = "10px";
       button.addEventListener('click', (event) => {
         const index = event.target.getAttribute('data-index');
-        datas[index][2] += 1;  // Increase the amount
+        datas[index][2] += 1;  
         updateLocalStorage(datas);
       });
     });
 
-    document.querySelectorAll('.decrease-btn').forEach(button => {
+    document.querySelectorAll('.btnDecrease').forEach(button => {
+      button.style.padding = "10px";
       button.addEventListener('click', (event) => {
         const index = event.target.getAttribute('data-index');
         if (datas[index][2] > 1) {
-          datas[index][2] -= 1;  // Decrease the amount, but not below 1
+          datas[index][2] -= 1;  
         } else {
-          datas.splice(index, 1);  // Remove item if quantity is 1 and user clicks decrease
+          datas.splice(index, 1);  
         }
         updateLocalStorage(datas);
       });
