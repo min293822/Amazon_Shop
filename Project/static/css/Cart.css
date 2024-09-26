@@ -7,6 +7,14 @@
   align-items: center;
 }
 
+
+#content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #noCart h3{
   margin-top: 5px;
   font-family: Arial;
@@ -102,7 +110,6 @@ tr td a #orderbtn:hover{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  border: none;
 }
 
 .amoun .btn-primary{
