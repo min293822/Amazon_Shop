@@ -234,11 +234,7 @@ span {
 }
 
 .btn-primary{
-  margin-left: 100px;
   margin-bottom: 10px;
-  padding: 10px;
-  font-weight: bold;
-  font-size: 20px;
 }
 
 .btn-primary:hover{

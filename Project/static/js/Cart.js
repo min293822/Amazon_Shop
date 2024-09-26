@@ -50,8 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     document.querySelectorAll('.btnIncrease').forEach(button => {
-      button.style.fontSize = "20px";
-      button.style.padding = "10px";
       button.addEventListener('click', (event) => {
         const index = event.target.getAttribute('data-index');
         datas[index][2] += 1;  
@@ -60,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.querySelectorAll('.btnDecrease').forEach(button => {
-      button.style.padding = "10px";
       button.addEventListener('click', (event) => {
         const index = event.target.getAttribute('data-index');
         if (datas[index][2] > 1) {
