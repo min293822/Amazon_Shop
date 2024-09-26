@@ -56,4 +56,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   
+  const customCards = document.querySelectorAll(".custom-card-size");
+  customCards.forEach(card => {
+    card.addEventListener('click', (event) => {
+      
+const cartBtn = card.querySelector(".btn-primary");
+      if (event.target !== cartBtn) {
+const title = card.querySelector(".card-title")?.innerHTML || "No title";
+const img = card.querySelector(".card-img-top");
+const discoOut = card.querySelector(".discount")?.innerHTML || "No discount";
+const priceDetail = card.querySelector(".price")?.innerHTML || "No price";
+const stockDetail = card.querySelector(".stock")?.innerHTML || "No stock";
+const colorDetail = card.querySelector(".color")?.innerHTML || "No color";
+const sizeDetail = card.querySelector(".size")?.innerHTML || "No size";
+const advertiseDetail = card.querySelector(".advertise")?.innerHTML || "No advertise";
+        const imgAttri = img.getAttribute('src');
+        const imgAlt = img.getAttribute('alt');
+        const category = card.closest(".col-md-4").getAttribute('data-category');
+
+        let productDetails = [title,imgAttri,priceDetail, stockDetail, advertiseDetail, imgAlt, category, colorDetail, sizeDetail, discount];
+        localStorage.setItem("productDetails", JSON.stringify(productDetails));
+        window.location.href = "http://127.0.0.1:8000/Product/";
+    }
+    });
+  });
+  
 });

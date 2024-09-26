@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  
   const numOfCart = document.getElementById('numCart');
   
   const sizes = document.querySelectorAll('.size');
@@ -16,18 +15,18 @@ for(let i=0; i<sizes.length; i++){
     const grandpa = paren.parentElement;
     const grandprice = grandpa.querySelector(".price");
     const priceElement = grandpa.querySelector('.price');
-    if (discountValue === 0) {
-      priceElement.style.margin = "10px";
+      if (discountValue === 0) {
+
       if (paren) {
         paren.style.background = "transparent";
         paren.style.color = "transparent";
       }
       if (grandprice) grandprice.style.display = "none";
+            
     }
   }
 
 discounts.forEach(discount =>
-
   discount.innerHTML = discount.innerHTML.replace(' %', '') + ' %');
 
 const cartBtns = document.querySelectorAll('.btn-primary');

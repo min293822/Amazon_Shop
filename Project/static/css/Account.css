@@ -8,6 +8,15 @@
   height: 100%;
 }
 
+#account{
+  width: 50%;
+  margin: auto;
+}
+
+#account .bx{
+  font-size: 100px;
+}
+
 #popup-login{
   display: none;
   width: 100%;
@@ -131,12 +140,12 @@ a{
 }
 
 #sex label{
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 #sex #gender{
   width: 30%;
-  margin: 0px 20px 20px 20px;
+  margin: 20px 20px 20px 20px;
   font-size: 20px;
   font-weight: bold;
   padding: 10px;
@@ -178,7 +187,3 @@ a{
   width: 25%;
   margin-right: 10px;
 }
-
-
-
-
