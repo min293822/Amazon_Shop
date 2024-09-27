@@ -8,7 +8,6 @@
   align-items: center;
 }
 
-
 #content{
   display: flex;
   flex-direction: column;
@@ -17,7 +16,7 @@
 }
 
 #noCart h3{
-  margin-top: 5px;
+  margin-top: 10px;
   font-family: Arial;
 }
 

@@ -1,20 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const numOfCart = document.getElementById('numCart');
-  
   const sizes = document.querySelectorAll('.size');
-const discounts = document.querySelectorAll('.discount');
 
 for(let i=0; i<sizes.length; i++){
   sizes[i].innerHTML = sizes[i].innerHTML ? "Size - " + sizes[i].innerHTML.replace("Size - ", "") : "Size - none";
 }
+  
+  const discounts = document.querySelectorAll('.discount');
   
   for (let i = 0; i < discounts.length; i++) {
     const paren = discounts[i].parentElement;
     const discountValue = parseFloat(discounts[i].innerHTML);
     const grandpa = paren.parentElement;
     const grandprice = grandpa.querySelector(".price");
-    const priceElement = grandpa.querySelector('.price');
       if (discountValue === 0) {
 
       if (paren) {
@@ -22,13 +20,14 @@ for(let i=0; i<sizes.length; i++){
         paren.style.color = "transparent";
       }
       if (grandprice) grandprice.style.display = "none";
-            
+    
     }
   }
 
 discounts.forEach(discount =>
   discount.innerHTML = discount.innerHTML.replace(' %', '') + ' %');
 
+const numOfCart = document.getElementById('numCart');
 const cartBtns = document.querySelectorAll('.btn-primary');
 
 cartBtns.forEach(btn =>{
@@ -64,22 +63,22 @@ cartBtns.forEach(btn =>{
 
 
   const customCards = document.querySelectorAll(".custom-card-size");
-  customCards.forEach(card => {
-    card.addEventListener('click', (event) => {
+customCards.forEach(card => {
+  card.addEventListener('click', (event) => {
       
-const cartBtn = card.querySelector(".btn-primary");
-      if (event.target !== cartBtn) {
-const title = card.querySelector(".card-title")?.innerHTML || "No title";
-const img = card.querySelector(".card-img-top");
-const discoOut = card.querySelector(".disOut")?.innerHTML || "No discount";
-const priceDetail = card.querySelector(".price")?.innerHTML || "No price";
-const stockDetail = card.querySelector(".stock")?.innerHTML || "No stock";
-const colorDetail = card.querySelector(".color")?.innerHTML || "No color";
-const sizeDetail = card.querySelector(".size")?.innerHTML || "No size";
-const advertiseDetail = card.querySelector(".advertise")?.innerHTML || "No advertise";
-        const imgAttri = img.getAttribute('src');
-        const imgAlt = img.getAttribute('alt');
-        const category = card.closest(".col-md-4").getAttribute('data-category');
+  const cartBtn = card.querySelector(".btn-primary");
+ if (event.target !== cartBtn) {
+  const title = card.querySelector(".card-title")?.innerHTML || "No title";
+  const img = card.querySelector(".card-img-top");
+  const discoOut = card.querySelector(".disOut")?.innerHTML || "No discount";
+  const priceDetail = card.querySelector(".price")?.innerHTML || "No price";
+  const stockDetail = card.querySelector(".stock")?.innerHTML || "No stock";
+  const colorDetail = card.querySelector(".color")?.innerHTML || "No color";
+  const sizeDetail = card.querySelector(".size")?.innerHTML || "No size";
+  const advertiseDetail = card.querySelector(".advertise")?.innerHTML || "No advertise";
+  const imgAttri = img.getAttribute('src');
+  const imgAlt = img.getAttribute('alt');
+  const category = card.closest(".col-md-4").getAttribute('data-category');
 
         let productDetails = [title,imgAttri,priceDetail, stockDetail, advertiseDetail, imgAlt, category, colorDetail, sizeDetail, discoOut];
         localStorage.setItem("productDetails", JSON.stringify(productDetails));

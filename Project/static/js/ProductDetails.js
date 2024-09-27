@@ -81,4 +81,21 @@ const advertiseDetail = card.querySelector(".advertise")?.innerHTML || "No adver
     });
   });
   
+  const discounts = document.querySelectorAll('.discount');
+  for (let i = 0; i < discounts.length; i++) {
+    const paren = discounts[i].parentElement;
+    const discountValue = parseFloat(discounts[i].innerHTML);
+    const grandpa = paren.parentElement;
+    const grandprice = grandpa.querySelector(".price");
+      if (discountValue === 0) {
+
+      if (paren) {
+        paren.style.background = "transparent";
+        paren.style.color = "transparent";
+      }
+      if (grandprice) grandprice.style.display = "none";
+            
+    }
+  }
+  
 });
