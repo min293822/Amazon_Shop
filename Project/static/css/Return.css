@@ -96,3 +96,18 @@ tfoot td button:hover{
 #can:hover{
   background: #001bae;
 }
+
+#canAll{
+  background: #1539ff;
+  color: #fff;
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  background: #1539ff;
+  display: block;
+  padding: 10px;
+}
+
+#canAll:hover{
+  background: #001bae;
+}

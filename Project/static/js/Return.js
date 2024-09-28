@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const [name, disOutt, amount] = data;
       const total = parseFloat(disOutt) * amount;
       const trow = document.createElement("tr");
-      
+      const indx = index;
       trow.innerHTML = `
         <td>${index + 1}</td>
         <td class="name">${name}</td>
@@ -73,7 +73,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   
+  const cancelPopup = document.getElementById("cancelPopup");
+  const cancelAll = document.getElementById("cancelAll");
+  const selection = document.getElementById("selection");
+  const canAll =document.getElementById("canAll");
   
+  cancelAll.addEventListener("click", ()=>{
+    cancelPopup.style.display = "block";
+    popup.style.display = "none";
+    const check = localStorage.getItem("orderProduct");
+    const datas = check ? JSON.parse(check) : [];
+    selection.innerHTML = "";
+    
+    datas.forEach((data, index)=>{
+      const name = data[0];
+      const option = document.createElement("option");
+      option.value = index;
+      option.textContent = name;
+      selection.appendChild(option);
+    });
+    
+  });
+  
+  canAll.addEventListener("click", ()=>{
+    selectIndex = sleection.value;
+    if(selectIndex !== ""){
+     const check = localStorage.getItem("orderProduct");
+     const datas = check ? JSON.parse(check) : [];
+    datas.splice(selectIndex, 1);
+    
+    localStorage.setItem("orderProduct", orderProduct);
+    
+    }
+    
+  });
 
   orderTable();
 });
