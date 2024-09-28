@@ -41,10 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const popupAmount = document.getElementById("popupAmount");
   const popupTotal = document.getElementById("popupTotal");
   const can = document.getElementById("can");
+  const cancelPopup = document.getElementById("cancelPopup");
+  const cancelAll = document.getElementById("cancelAll");
+  const selection = document.getElementById("selection");
+  const canAll =document.getElementById("canAll");
   
   function attachCancelListeners(datas) {
     const cancelBtns = document.querySelectorAll(".cancel");
-    
+    const orderTable = document.getElementById("orderTable");
     cancelBtns.forEach(btn => {
       btn.addEventListener("click", (event) => {
         const index = event.target.getAttribute("data-index");
@@ -52,9 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const parentName = parentRow.querySelector(".name").innerHTML;
         const parentAmount = parseInt(parentRow.querySelector(".amount").innerHTML, 10);
         const parentTotal = parentRow.querySelector(".tot").innerHTML.replace("$ ", "");
-
+        
         popup.style.display = "block";
-        popupCancel.style.display = "block";
+        orderTable.style.display = "none";
+        cancelPopup.style.display = "none";
         popupName.innerHTML = parentName;
         popupAmount.value = parentAmount;
         popupTotal.innerHTML = `$ ${parentTotal}`;
@@ -67,19 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
             datas.splice(index, 1);
           }
           updateLocalStorage(datas);
-          popup.style.display = "none"; 
+          popup.style.display = "none";
+          orderTable.style.display = "block";
         };
       });
     });
   }
   
-  const cancelPopup = document.getElementById("cancelPopup");
-  const cancelAll = document.getElementById("cancelAll");
-  const selection = document.getElementById("selection");
-  const canAll =document.getElementById("canAll");
   
   cancelAll.addEventListener("click", ()=>{
     cancelPopup.style.display = "block";
+    orderTable.style.display = "none";
     popup.style.display = "none";
     const check = localStorage.getItem("orderProduct");
     const datas = check ? JSON.parse(check) : [];
@@ -113,7 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
      });
     localStorage.setItem("orderProduct", orderProduct);
     cancelPopup.style.display = "none";
+    orderTable.style.display = "block";
   });
-
+  
   orderTable();
 });

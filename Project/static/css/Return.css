@@ -49,16 +49,17 @@ tfoot td button{
   font-size: 20px;
   width: 100%;
   margin: 0;
-  background: #0022dc;
+  background: #1539ff;
   color: #fff;
+  margin-top: 10px;
 }
 
 tfoot td button:hover{
-  background: #001796;
+  background: #001bae;
 }
 
 #popupCancel{
-  display: none;
+  display: block;
 }
 
 #orderTable tbody tr td .amount{
@@ -70,12 +71,12 @@ tfoot td button:hover{
   margin: 0;
   font-size: 20px;
   font-weight: bold;
-  background: #1539ff;
+  background: #ff1515bc;
   display: block;
 }
 
 #orderTable tbody tr td .cancel:hover{
-  background: #001bae;
+  background: #ae0000b5;
 }
 
 #orderTable tbody tr td:last-child{
@@ -88,7 +89,6 @@ tfoot td button:hover{
   margin: 0;
   font-size: 20px;
   font-weight: bold;
-  background: #1539ff;
   display: block;
   padding: 10px;
 }
@@ -98,7 +98,6 @@ tfoot td button:hover{
 }
 
 #canAll{
-  background: #1539ff;
   color: #fff;
   margin: 0;
   font-size: 20px;
@@ -113,5 +112,9 @@ tfoot td button:hover{
 }
 
 #cancelPopup{
+  display: none;
+}
+
+#popup{
   display: none;
 }
