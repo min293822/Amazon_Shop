@@ -4,8 +4,48 @@
 
 {% block content %}
  
+  <div id="noOrder" class="container">
+   <div id="content">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAiQrWU1_XPl-elP1fso3jrcZDEk_d4x-wlg&s" alt="noCartImage">
+   <h3>You don't have any Order!</h3>
+   </div>
+   <a href="http://127.0.0.1:8000/">
+     <button id="backToProducts">
+     Back To The Products</button>
+   </a>
+ </div>
+ 
+   <div id="haveOrder">
+   <table id="orderTable">
+    <thead>
+     <tr>
+      <th >No.</th>
+      <th class="hName">Name</th>
+      <th class="hamount">Amount</th>
+      <th class="htotal">Total</th>
+      <th class="hcancel">Cancel Order</th>
+     </tr>
+    </thead>
+    <tbody>
+     <!-- table data will appear -->
+    </tbody>
+    <tfoot>
+     <td colspan="5"><button id="cancelAll">Cancel All Orders</button></td>
+    </tfoot>
+   </table>
+   
+   <div id="popup">
+   <div id="popupCancel">
+     <h3 id="popupName"></h3>
+     <label for="popupAmount">Amount</label>
+     <input type="number" id="popupAmount">
+     <div id="popupTotal">0</div>
+     <button id="can">Cancel</button>
+   </div>
+   </div>
+   
+  </div>
 
-
- <script src="{% static 'js/Base.js' %}"></script>
+ <script src="{% static 'js/Return.js' %}"></script>
 {% endblock %}
 

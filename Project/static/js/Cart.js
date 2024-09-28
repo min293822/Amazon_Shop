@@ -2,25 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const noCart = document.getElementById("noCart");
   const haveCart = document.getElementById("haveCart");
   const tbody = document.querySelector("#cart-table tbody");
-
+  const totalAmount = document.getElementById("total");
+  
   function updateLocalStorage(cartTable) {
     localStorage.setItem("cartTable", JSON.stringify(cartTable));
-    table(); 
+    renderTable(); 
   }
 
-  function table() {
+  function renderTable() {
     tbody.innerHTML = ''; 
     let totalsum = 0;
     const check = localStorage.getItem("cartTable");
     const datas = check ? JSON.parse(check) : [];
     
-    if (datas.length === 0) {
-      noCart.style.display = "block";
-      haveCart.style.display = "none";
-    } else {
-      noCart.style.display = "none";
-      haveCart.style.display = "block";
-    }
+    noCart.style.display = datas.length === 0 ? "block" : "none";
+    haveCart.style.display = datas.length === 0 ? "none" : "block";
 
     datas.forEach((item, index) => {
       const [name, disOutt, amount] = item; 
@@ -29,12 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
       totalsum += total;
 
       const trow = document.createElement("tr");
-      const tNo = index + 1;
       trow.innerHTML = `
-        <td>${tNo}</td>
+        <td>${index + 1}</td>
         <td>${name}</td>
         <td>$ ${priced.toFixed(2)}</td>
-        <td class="amoun">
+        <td class="amount">
           <a class="btnDecrease btn-primary" data-index="${index}">-</a>
           ${Math.floor(amount)}
           <a class="btnIncrease btn-primary" data-index="${index}">+</a>
@@ -44,11 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
       tbody.appendChild(trow);
     });
 
-    const totalAmount = document.getElementById("total");
     if (totalAmount) {
       totalAmount.innerHTML = "$ " + totalsum.toFixed(2);
     }
-    
+
+    attachEventListeners(datas);
+  }
+
+  function attachEventListeners(datas) {
     document.querySelectorAll('.btnIncrease').forEach(button => {
       button.addEventListener('click', (event) => {
         const index = event.target.getAttribute('data-index');
@@ -70,5 +68,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  table();
+  renderTable();
+  
+  const orderBtn = document.getElementById("orderbtn");
+  orderBtn.addEventListener("click", () => {
+    const orderProduct = [];
+    const checkReturn = localStorage.getItem("cartTable");
+    const dataReturn = checkReturn ? JSON.parse(checkReturn) : [];
+    
+    dataReturn.forEach(items => {
+      let name = items[0];
+      let disOutt = items[1];
+      let amount = items[2];
+      let current = [name, disOutt, amount];
+      orderProduct.push(current);
+    });
+    
+    localStorage.setItem("orderProduct", JSON.stringify(orderProduct));
+    window.location.href = "http://127.0.0.1:8000/Return/";
+  });
 });

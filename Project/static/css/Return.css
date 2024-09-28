@@ -1,4 +1,4 @@
-#noCart{
+#noOrder{
   height: 500px;
   width: 100%;
   display: flex;
@@ -8,26 +8,26 @@
   align-items: center;
 }
 
-#content{
+#noOrder #content{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#noCart h3{
+#noOrder h3{
   margin-top: 10px;
   font-family: Arial;
 }
 
-#noCart a{
+#noOrder a{
   text-decoration-line: none;
   width: 50%;
   padding: 0;
   margin-top: 10px;
 }
 
-#backProducts{
+#backToProducts{
   width: 100%;
   font-weight: bold;
   font-family: Arial;
@@ -39,74 +39,60 @@
   box-shadow: 10px 10px 5px 5px #00000086;
 }
 
-#backProducts:hover{
+#backToProducts:hover{
   background: #0032cd;
   color: #fff;
 }
 
-#haveCart{
+tfoot td button{
   padding: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-table, th, td {
-  border-collapse: collapse;
-  border: 1px solid #000;
   font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  overflow: scroll;
-}
-
-th{
-  padding: 10px;
-  width: 15%;
-}
-
-.amo{
-  width: 300px;
-}
-
-th:first-child{
-  width: 7%;
-}
-
-.hName{
-  width: 250px;
-}
-
-.hame{
-  width: 200px;
-}
-
-tr td a{
-  text-decoration-line: none;
-}
-
-tr td a #orderbtn{
   width: 100%;
-  padding: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  background: #001ec1;
+  margin: 0;
+  background: #0022dc;
   color: #fff;
 }
 
-tr td a #orderbtn:hover{
-  background: #00137a;
+tfoot td button:hover{
+  background: #001796;
 }
 
-.amount{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+#popupCancel{
+  display: none;
 }
 
-.amount .btn-primary{
+#orderTable tbody tr td .amount{
+  text-align: center;
+}
+
+#orderTable tbody tr td .cancel{
+  color: #fff;
+  margin: 0;
   font-size: 20px;
   font-weight: bold;
+  background: #1539ff;
+  display: block;
+}
+
+#orderTable tbody tr td .cancel:hover{
+  background: #001bae;
+}
+
+#orderTable tbody tr td:last-child{
+  padding: 0;
+}
+
+#can{
+  background: #1539ff;
+  color: #fff;
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  background: #1539ff;
+  display: block;
   padding: 10px;
+}
+
+#can:hover{
+  background: #001bae;
 }
