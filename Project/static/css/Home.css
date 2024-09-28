@@ -111,7 +111,7 @@ span {
 .nav{
   padding: 20px 0 0px 0px;
   background: #000;
-  width: 1000px;
+  width: 100%;
 }
 
 .nav ul{

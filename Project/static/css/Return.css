@@ -111,3 +111,7 @@ tfoot td button:hover{
 #canAll:hover{
   background: #001bae;
 }
+
+#cancelPopup{
+  display: none;
+}

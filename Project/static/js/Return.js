@@ -96,16 +96,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   canAll.addEventListener("click", ()=>{
-    selectIndex = sleection.value;
-    if(selectIndex !== ""){
+    let val = [];
+    const optionLength = selection.options.length;
+    const options = selection.options;
+    
+    for(let i=0; i<optionLength; i++){
+      if(options[i].selected){
+      val.push(options[i].value);
+      }
+    }
      const check = localStorage.getItem("orderProduct");
      const datas = check ? JSON.parse(check) : [];
-    datas.splice(selectIndex, 1);
-    
+     
+     val.forEach(num =>{
+       datas.splice(num, 1);
+     });
     localStorage.setItem("orderProduct", orderProduct);
-    
-    }
-    
+    cancelPopup.style.display = "none";
   });
 
   orderTable();
