@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cancelAll = document.getElementById("cancelAll");
   const selection = document.getElementById("selection");
   const canAll =document.getElementById("canAll");
+  const back = document.getElementById("back");
+  const backAll =document.getElementById("backAll");
   
   function attachCancelListeners(datas) {
     const cancelBtns = document.querySelectorAll(".cancel");
@@ -75,10 +77,14 @@ document.addEventListener("DOMContentLoaded", () => {
           popup.style.display = "none";
           orderTable.style.display = "block";
         };
+        
+        back.onclick = () =>{
+          popup.style.display = "none";
+          orderTable.style.display = "block";
+        }
       });
     });
   }
-  
   
   cancelAll.addEventListener("click", ()=>{
     cancelPopup.style.display = "block";
@@ -98,6 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
   });
   
+  backAll.onclick = () =>{
+    cancelPopup.style.display = "none";
+    orderTable.style.display = "block";
+  }
+        
   canAll.addEventListener("click", ()=>{
     let val = [];
     const optionLength = selection.options.length;

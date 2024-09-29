@@ -83,7 +83,7 @@ tfoot td button:hover{
   padding: 0;
 }
 
-#can{
+#can, #canAll, #back, #backAll{
   background: #1539ff;
   color: #fff;
   margin: 0;
@@ -97,24 +97,18 @@ tfoot td button:hover{
   background: #001bae;
 }
 
-#canAll{
-  color: #fff;
-  margin: 0;
-  font-size: 20px;
-  font-weight: bold;
-  background: #1539ff;
-  display: block;
-  padding: 10px;
-}
-
 #canAll:hover{
   background: #001bae;
 }
 
-#cancelPopup{
-  display: none;
+#back:hover{
+  background: #001bae;
 }
 
-#popup{
+#backAll:hover{
+  background: #001bae;
+}
+
+#cancelPopup, #popup{
   display: none;
 }
