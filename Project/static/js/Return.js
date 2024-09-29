@@ -47,10 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const canAll =document.getElementById("canAll");
   const back = document.getElementById("back");
   const backAll =document.getElementById("backAll");
+  const table = document.getElementById("orderTable");
   
   function attachCancelListeners(datas) {
     const cancelBtns = document.querySelectorAll(".cancel");
-    const orderTable = document.getElementById("orderTable");
+    
     cancelBtns.forEach(btn => {
       btn.addEventListener("click", (event) => {
         const index = event.target.getAttribute("data-index");
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const parentTotal = parentRow.querySelector(".tot").innerHTML.replace("$ ", "");
         
         popup.style.display = "flex";
-        orderTable.style.display = "none";
+        table.style.display = "none";
         cancelPopup.style.display = "none";
         popupName.innerHTML = parentName;
         popupAmount.value = parentAmount;
@@ -75,20 +76,20 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           updateLocalStorage(datas);
           popup.style.display = "none";
-          orderTable.style.display = "block";
+          table.style.display = "block";
         };
         
         back.onclick = () =>{
           popup.style.display = "none";
-          orderTable.style.display = "block";
+          table.style.display = "block";
         }
       });
     });
   }
   
   cancelAll.addEventListener("click", ()=>{
-    cancelPopup.style.display = "block";
-    orderTable.style.display = "none";
+    cancelPopup.style.display = "flex";
+    table.style.display = "none";
     popup.style.display = "none";
     const check = localStorage.getItem("orderProduct");
     const datas = check ? JSON.parse(check) : [];
@@ -102,11 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
       selection.appendChild(option);
     });
     
-  });
-  
   backAll.onclick = () =>{
     cancelPopup.style.display = "none";
-    orderTable.style.display = "block";
+    table.style.display = "block";
   }
         
   canAll.addEventListener("click", ()=>{
@@ -119,15 +118,14 @@ document.addEventListener("DOMContentLoaded", () => {
       val.push(options[i].value);
       }
     }
-     const check = localStorage.getItem("orderProduct");
-     const datas = check ? JSON.parse(check) : [];
-     
      val.forEach(num =>{
        datas.splice(num, 1);
      });
-    localStorage.setItem("orderProduct", orderProduct);
+    localStorage.setItem("orderProduct", JSON.stringify(datas));
     cancelPopup.style.display = "none";
-    orderTable.style.display = "block";
+    table.style.display = "block";
+  });
+
   });
   
   orderTable();

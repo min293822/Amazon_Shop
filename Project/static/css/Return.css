@@ -87,6 +87,9 @@ tfoot td button:hover{
   font-weight: bold;
   display: block;
   padding: 10px;
+  border-radius: 10px;
+  width: 100px;
+  margin-top: 20px;
 }
 
 #can:hover{
@@ -112,11 +115,15 @@ tfoot td button:hover{
   justify-content: center;
   align-items: center;
   border: 1px solid #000;
-  background: #000000cc;
+  background: #0000008d;
   border-radius: 10px;
   padding: 30px;
   position: relative;
-  top: 100px;
+  width: 50%;
+}
+
+#popupContent{
+  height: 200px;
 }
 
 #popupName{
@@ -124,11 +131,12 @@ tfoot td button:hover{
 }
 
 #popupCancel input{
-  color: #000;
+  color: #fff;
+  text-align: center;
   font-size: 20px;
   font-weight: bold;
-  background: #fff;
-  width: 100px;
+  background: #00000000;
+  width: 50px;
   border: none;
   outline: none;
   margin-left: 10px;
@@ -136,15 +144,16 @@ tfoot td button:hover{
 
 #popup, #cancelPopup{
   display: none;
-  width: 100%;
-  height: 700px;
-  background: #00000065 transparent;
+  width: 1000px;
+  height: 1000px;
+  background: transparent;
   justify-content: center;
   align-items: center;
   margin: 0;
 }
 
 .con{
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
