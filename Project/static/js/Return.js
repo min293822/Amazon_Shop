@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const parentAmount = parseInt(parentRow.querySelector(".amount").innerHTML, 10);
         const parentTotal = parentRow.querySelector(".tot").innerHTML.replace("$ ", "");
         
-        popup.style.display = "block";
+        popup.style.display = "flex";
         orderTable.style.display = "none";
         cancelPopup.style.display = "none";
         popupName.innerHTML = parentName;

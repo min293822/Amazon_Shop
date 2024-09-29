@@ -58,10 +58,6 @@ tfoot td button:hover{
   background: #001bae;
 }
 
-#popupCancel{
-  display: block;
-}
-
 #orderTable tbody tr td .amount{
   text-align: center;
 }
@@ -109,6 +105,48 @@ tfoot td button:hover{
   background: #001bae;
 }
 
-#cancelPopup, #popup{
-  display: none;
+#popupCancel, #popupContent{
+  display: flex;
+  color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  background: #000000cc;
+  border-radius: 10px;
+  padding: 30px;
+  position: relative;
+  top: 100px;
 }
+
+#popupName{
+  margin-bottom: 20px;
+}
+
+#popupCancel input{
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  background: #fff;
+  width: 100px;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+}
+
+#popup, #cancelPopup{
+  display: none;
+  width: 100%;
+  height: 700px;
+  background: #00000065 transparent;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.con{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
