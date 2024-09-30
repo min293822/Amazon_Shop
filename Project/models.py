@@ -1,12 +1,14 @@
 from django.db import models
 from decimal import Decimal
+from django.contrib.auth.models import User
 
 class UserInfo(models.Model):
-  user_name = models.CharField(max_length=277)
+  user = models.OneToOneField(User, on_delete=models.CASCADE)
   email = models.CharField(max_length=577)
   passwords = models.CharField(max_length=128)
   birth_date = models.CharField(max_length=20)
   sex = models.CharField(max_length=277)
+  address = models.CharField(max_length=999, null=True, blank=True)
 
 class Watches(models.Model):
   name = models.CharField(max_length=277)

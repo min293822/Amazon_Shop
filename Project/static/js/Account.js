@@ -3,15 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const account = document.getElementById("account");
   const popupSignUp = document.getElementById("popup-signup");
   const popupLogin = document.getElementById("popup-login");
-  const loginBtn = document.getElementById("loginbtn");
-  
-  loginBtn.addEventListener("click", () => {
-    account.style.display = "none";
-    popupSignUp.style.display = "none";
-    popupLogin.style.display = "flex";
-  });
-  
   const login = document.getElementById("login");
+  
+  const userName = document.getElementById("userName");
+  const userAge = document.getElementById("userAge");
+  const userSex = document.getElementById("userSex");
+  const userAddress = document.getElementById("userAddress");
+  const orderedProducts = document.getElementById("orderedProducts");
   
   login.addEventListener("click", () => {
     account.style.display = "block";
@@ -23,15 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const name = document.getElementById("full-name");
   
   noAccount.addEventListener("click", () => {
-    account.style.display = "none";
-    popupLogin.style.display = "none";
-    popupSignUp.style.display = "flex";
-    name.style.display = "flex";
-  });
-  
-  const signUpBtn = document.getElementById("signupbtn");
-
-  signUpBtn.addEventListener("click", () => {
     account.style.display = "none";
     popupLogin.style.display = "none";
     popupSignUp.style.display = "flex";
