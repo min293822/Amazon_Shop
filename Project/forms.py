@@ -16,10 +16,21 @@ class UserInfoForm(forms.ModelForm):
     birth_date = forms.DateField(
         widget=forms.SelectDateWidget(attrs={'class': 'form-control', 'id':'birth'},years=range(1950, 2025))
     )
+    sex = forms.ChoiceField(
+        choices=[
+            ('', 'Select Gender'),
+            ('M', 'Male'),
+            ('F', 'Female'),
+            ('O', 'Other'),
+            ('N', 'Prefer not to say'),
+        ],
+        widget=forms.Select(attrs={'class': 'form-control', 'id':'sex'})
+    )
 
+    
     class Meta:
         model = UserInfo
-        fields = ['name', 'email', 'password', 'birth_date']
+        fields = ['name', 'email', 'sex', 'birth_date', 'password']
 
     def save(self, commit=True):
         user = User.objects.create_user(
