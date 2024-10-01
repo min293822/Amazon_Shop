@@ -1,18 +1,14 @@
 from . import views
 from django.urls import path
 
-# Example view
-
 urlpatterns = [
-  path("", views.Products),
-  path("Account/", views.Account, name="account"),
-  path("Cart/", views.Cart),
-  path("Return/", views.Return),
-  path("Product/", views.ProductDetails, name="product"),
-  path('register/', views.register, name='register'),
-  path('login/', views.user_login, name='login'),
-  path('profile/', views.user_profile, name='profile'),
-  path('logout/', views.user_logout, name='logout'),
-  path('update/<int:pk>/', views.update_model, name='update_model'),
-    # Add other paths as necessary
-  ]
+    path("", views.Products, name='products'),
+    path("Cart/", views.Cart, name='cart'),
+    path("Return/", views.Return, name='return'),
+    path("Product/", views.ProductDetails, name="product_details"),
+    path('logout/', views.logout_view, name='logout_view'),
+    path('signup/', views.signup_view, name='signup_view'),
+    path('login/', views.login_view, name='login_view'),
+    path('user/', views.user_info, name='user_info'),
+
+]

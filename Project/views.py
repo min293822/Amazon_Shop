@@ -1,74 +1,59 @@
 
 import random
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .models import UserInfo, Watches, Clothes, Pants, Sneakers
-from .forms import UserRegistrationForm, MyModelForm 
-from django.urls import reverse
-# Ensure you have these forms
+from .forms import UserInfoForm
+from django.contrib.auth.models import User
 
-def update_model(request, pk):
-    instance = get_object_or_404(UserInfo, pk=pk)
-    if request.method == 'POST':
-        form = MyModelForm(request.POST, instance=instance)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse('admin:Project_userinfo_changelist'))
-    else:
-        form = MyModelForm(instance=instance)
-    
-    return render(request, 'Project/Account.html', {'form': form})
-
-# User Registration
-def register(request):
-    if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            UserInfo.objects.create(user=user)  # Create UserInfo for the new user
-            return redirect('login')
-    else:
-        form = UserRegistrationForm()
-    return render(request, 'Project/Register.html', {'form': form})
-
-# User Login
-def user_login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('account')  # Redirect to account page after login
-    return render(request, 'Project/Login.html')
-
-# User Profiledef user_profile(request):
-def user_profile(request):
-  user_info = get_object_or_404(UserInfo, user=request.user) 
-  if request.method == 'POST':
-    form = MyModelForm(request.POST, instance=user_info)
-    if form.is_valid():
-      form.save()
-      return redirect('profile')  
+def user_info(request):
+  if request.user.is_authenticated:
+    return render(request, 'Project/user_data.html', {'userinfo':request.user})
   else:
-    form = MyModelForm(instance=user_info)
-        
-  return render(request, 'Project/Profile.html', {'form': form, 'user_info': user_info})
+    return redirect('login_view')
 
+def login_view(request):
+  if request.method == "POST":
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+      login(request, user)
+      return redirect('user_info')
+    else:
+      messages.error(request, "Invalid username or password")
+  return render(request, 'Project/login.html')
 
-# User Logout
-def user_logout(request):
-    logout(request)
-    return redirect('login') 
+def signup_view(request):
+  if request.method == 'POST':
+    form = UserInfoForm(request.POST)
+    if form.is_valid():
+      email = form.cleaned_data['email']
+      if User.objects.filter(email=email).exists():
+        messages.error(request, 'Account Existed')
+      else:
+        userinfo = form.save()
+        user = authenticate(username=userinfo.user.username, password=request.POST['password'])
+        login(request, user)
+        messages.success(request, "Success")
+        return redirect('user_info')
+    else:
+      messages.error(request, "Unsuccessful")
+  else:
+    form = UserInfoForm()
+  return render(request, 'Project/signup.html', {'form':form})
+  
+def logout_view(request):
+  logout(request)
+  messages.success(request, 'You have been log out')
+  return redirect('login_view')
 
 def Return(request):
     return render(request, 'Project/Return.html')
 
 def Cart(request):
     return render(request, 'Project/Cart.html')
-
-def Account(request):
-    return render(request, 'Project/Account.html')
 
 def Products(request):
     watches = list(Watches.objects.all())

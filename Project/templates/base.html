@@ -46,8 +46,8 @@
   <ul>
     <h5>Account & Sign in</h5>
     <hr>
-    <li><a data-account-url-in="{% url 'account' %}" id="sign_in_home_side">Sign In</a></li>
-    <li><a data-account-url-up="{% url 'account' %}" id="sign_up_home_side">Sign Up</a></li>
+    <li><a data-account-url-in="" id="sign_in_home_side">Sign In</a></li>
+    <li><a data-account-url-up="" id="sign_up_home_side">Sign Up</a></li>
   </ul>
   <ul>
     <h5>Help</h5>
@@ -80,7 +80,7 @@
       </select>
       </div>
       <div class="signin">
-      <a href="http://127.0.0.1:8000/profile/">
+      <a href="{% url 'user_info' %}">
         <button>Hello, sign in <span>Account & List</span></button>
       </a>
       </div>
