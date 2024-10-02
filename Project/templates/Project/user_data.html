@@ -6,14 +6,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <link rel="stylesheet" href="{% static 'css/user.css' %}">
   <title>Login</title>
 </head>
 <body>
+  <div class="container">
 <h2 id="head">Welcome {{ userinfo.username }}</h1>
 <p id="email">Email: {{ userinfo.email }}</p>
-<a href="{% url 'logout_view' %}">logout_view</a>
-
+<a href="{% url 'logout_view' %}">Logout</a>
+</div>
 
 </body>
 </html>

@@ -13,12 +13,19 @@ def location(request):
     g = geocoder.ip('me')
     country = g.country if g.country else "Not Found"
     return JsonResponse({'country': country})
-
+    
 def user_info(request):
   if request.user.is_authenticated:
-    return render(request, 'Project/user_data.html', {'userinfo':request.user})
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+      user_detail = {
+        'username': request.user.username,
+        'email': request.user.email,
+            }
+      return JsonResponse({'userDetail': user_detail})
+    return render(request, 'Project/user_data.html', {'userinfo': request.user})
   else:
     return redirect('login_view')
+
 
 def login_view(request):
   if request.method == "POST":

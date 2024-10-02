@@ -10,9 +10,17 @@ const productRow = document.getElementById('product-row');
   const pantRow = document.getElementById('pant-row');
   const clothRow = document.getElementById('cloth-row');
   const rows = [productRow, sneakerRow, watchRow, pantRow, clothRow];
-  const emaildata = document.getElementById("email");
-  const headdata = document.getElementById("head");
+  const emailData = document.getElementById("email");
+  const headData = document.getElementById("head");
   
+  fetch('/userinfo/').then(response => response.json()).then(data =>{
+    emailData.innerText = data.email;
+    headData.innerText = data.username;
+  }).catch(error =>{
+    emailData.innerText = "not found";
+    headData.innerText = "not found";
+    console.log('Error:', error);
+  });
 
   function hideAllRows() {
     rows.forEach(row => row.classList.add("d-none"));
