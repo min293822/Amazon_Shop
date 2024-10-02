@@ -18,17 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch('/userinfo/')
       .then(response => response.json())
       .then(data => {
-        emailData.innerText = data.email || "not found";
-        headData.innerText = data.username || "not found";
+        if(data.uesrDetail){
+         emailData.innerText = data.userDetail.email;
+         headData.innerText = data.userDetail.username;
+        }
+        
       })
       .catch(error => {
         emailData.innerText = "not found";
         headData.innerText = "not found";
+        
         console.error('Error:', error);
       });
   }
 
-  // Call the function to fetch user info
   fetchUserInfo();
 
   function hideAllRows() {
