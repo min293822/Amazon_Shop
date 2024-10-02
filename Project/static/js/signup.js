@@ -15,10 +15,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     forgot.onclick = ()=>{
       alert("WTF! Don't you even know your fucking password?");
     }
-        {% if messages %}
-      {% for message in messages %}
-        alert("{{ message }}");
-      {% endfor %}
-    {% endif %}
+
     
     });

@@ -23,7 +23,13 @@
    </form>
   </div>
 
- <script src="{% static 'js/signup.js' %}"></script>
+ <script src="{% static 'js/signup.js' %}">
+           {% if messages %}
+      {% for message in messages %}
+        alert("{{ message }}");
+      {% endfor %}
+    {% endif %}
+ </script>
 
 </body>
 </html>
