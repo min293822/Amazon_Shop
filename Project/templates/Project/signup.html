@@ -17,27 +17,13 @@
     <div class="show-forgot">
       <input type="checkbox" id="showPass">
       <label for="showPass">Show Password</label>
-      <a href="#">Forgot Password</a>
+      <a href="#" id="forgot">Forgot Password</a>
     </div>
     <button type="submit">Sign Up</button>
    </form>
   </div>
 
- <script>
-    const passwordInput = document.getElementById("password");
-    const showPass = document.getElementById("showPass");
-    showPass.addEventListener('change', ()=>{
-        if(showPass.checked){
-        passwordInput.setAttribute("type","text");
-      } else{
-        passwordInput.setAttribute("type","password");
-      }
-      
-      
-    });
-    
-    
-  </script>
+ <script src="{% static 'js/signup.js' %}"></script>
 
 </body>
 </html>

@@ -6,6 +6,13 @@ from django.contrib.auth import authenticate, login, logout
 from .models import UserInfo, Watches, Clothes, Pants, Sneakers
 from .forms import UserInfoForm
 from django.contrib.auth.models import User
+from django.http import JsonResponse
+import geocoder
+
+def location(request):
+    g = geocoder.ip('me')
+    country = g.country if g.country else "Not Found"
+    return JsonResponse({'country': country})
 
 def user_info(request):
   if request.user.is_authenticated:

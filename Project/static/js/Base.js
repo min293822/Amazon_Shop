@@ -10,6 +10,9 @@ const productRow = document.getElementById('product-row');
   const pantRow = document.getElementById('pant-row');
   const clothRow = document.getElementById('cloth-row');
   const rows = [productRow, sneakerRow, watchRow, pantRow, clothRow];
+  const emaildata = document.getElementById("email");
+  const headdata = document.getElementById("head");
+  
 
   function hideAllRows() {
     rows.forEach(row => row.classList.add("d-none"));
@@ -53,6 +56,14 @@ const cards = Array.from(document.querySelectorAll('.card'));
   pantSide.addEventListener("click", () => performSearch("pant"));
   clothSide.addEventListener("click", () => performSearch("cloth"));
   
+  const location = document.getElementById("location");
+  fetch("/country/").then(response => response.json
+  ()).then(data =>{
+    location.innerHTML = data.country;
+  }).catch(error =>{
+    console.error('Error:', error);
+    location.innerHTML = "Not Found";
+  });
   
   document.getElementById("to-top").addEventListener('click', () => {
     window.scrollTo({

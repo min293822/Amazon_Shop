@@ -18,8 +18,7 @@
 <!-- Offcanvas Sidebar -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h3>Hello</h3>
-    <h3>{{user.name}}</h3>
+    <h3 id="head"></h3>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
@@ -29,10 +28,6 @@
    <li>
     <label>Email:</label>
     <div id="email"></div>
-   </li>
-   <li>
-    <label>Address:</label>
-    <div id="address"></div>
    </li>
   </ul>
   <ul>
@@ -46,8 +41,8 @@
   <ul>
     <h5>Account & Sign in</h5>
     <hr>
-    <li><a data-account-url-in="" id="sign_in_home_side">Sign In</a></li>
-    <li><a data-account-url-up="" id="sign_up_home_side">Sign Up</a></li>
+    <li><a href="{% url 'login_view' %}">Sign In</a></li>
+    <li><a href="{% url 'signup_view' %}">Sign Up</a></li>
   </ul>
   <ul>
     <h5>Help</h5>
@@ -68,7 +63,7 @@
     <div class="d-flex align-items-center">
       <div class="location">
         <label>Deliver to</label>
-        <span id="location">Myanmar</span>
+        <span id="location"></span>
       </div>
       <div class="search">
         <input class="search-input" type="search" placeholder="Search" aria-label="Search" name="search">
