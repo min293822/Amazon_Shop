@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const [name, disOutt, amount] = data;
       const total = parseFloat(disOutt) * amount;
       const trow = document.createElement("tr");
-      const indx = index;
       trow.innerHTML = `
         <td>${index + 1}</td>
         <td class="name">${name}</td>
@@ -44,9 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const cancelPopup = document.getElementById("cancelPopup");
   const cancelAll = document.getElementById("cancelAll");
   const selection = document.getElementById("selection");
-  const canAll =document.getElementById("canAll");
+  const canAll = document.getElementById("canAll");
   const back = document.getElementById("back");
-  const backAll =document.getElementById("backAll");
+  const backAll = document.getElementById("backAll");
   const table = document.getElementById("orderTable");
   
   function attachCancelListeners(datas) {
@@ -79,15 +78,15 @@ document.addEventListener("DOMContentLoaded", () => {
           table.style.display = "block";
         };
         
-        back.onclick = () =>{
+        back.onclick = () => {
           popup.style.display = "none";
           table.style.display = "block";
-        }
+        };
       });
     });
   }
   
-  cancelAll.addEventListener("click", ()=>{
+  cancelAll.addEventListener("click", () => {
     cancelPopup.style.display = "flex";
     table.style.display = "none";
     popup.style.display = "none";
@@ -95,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const datas = check ? JSON.parse(check) : [];
     selection.innerHTML = "";
     
-    datas.forEach((data, index)=>{
+    datas.forEach((data, index) => {
       const name = data[0];
       const option = document.createElement("option");
       option.value = index;
@@ -103,29 +102,30 @@ document.addEventListener("DOMContentLoaded", () => {
       selection.appendChild(option);
     });
     
-  backAll.onclick = () =>{
-    cancelPopup.style.display = "none";
-    table.style.display = "block";
-  }
-        
-  canAll.addEventListener("click", ()=>{
-    let val = [];
-    const optionLength = selection.options.length;
-    const options = selection.options;
+    backAll.onclick = () => {
+      cancelPopup.style.display = "none";
+      table.style.display = "block";
+    };
     
-    for(let i=0; i<optionLength; i++){
-      if(options[i].selected){
-      val.push(options[i].value);
-      }
-    }
-     val.forEach(num =>{
-       datas.splice(num, 1);
-     });
-    localStorage.setItem("orderProduct", JSON.stringify(datas));
-    cancelPopup.style.display = "none";
-    table.style.display = "block";
-  });
+    canAll.onclick = () => {
+      let val = [];
+      const options = selection.options;
 
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].selected) {
+          val.push(parseInt(options[i].value));
+        }
+      }
+      
+      // Sort indices in descending order before splicing
+      val.sort((a, b) => b - a).forEach(num => {
+        datas.splice(num, 1);
+      });
+      
+      updateLocalStorage(datas); 
+      cancelPopup.style.display = "none";
+      table.style.display = "block";
+    };
   });
   
   orderTable();
