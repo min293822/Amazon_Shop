@@ -117,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
       
-      // Sort indices in descending order before splicing
       val.sort((a, b) => b - a).forEach(num => {
         datas.splice(num, 1);
       });
