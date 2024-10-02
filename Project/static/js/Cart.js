@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTable();
   
   const orderBtn = document.getElementById("orderbtn");
+  const returnUrl = orderBtn.dataset.url;
   orderBtn.addEventListener("click", () => {
     const orderProduct = [];
     const checkReturn = localStorage.getItem("cartTable");
@@ -86,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     localStorage.setItem("orderProduct", JSON.stringify(orderProduct));
     localStorage.removeItem('cartTable');
-    window.location.href = "http://127.0.0.1:8000/Return/";
+    window.location.href = window.location.origin + returnUrl;
     
   });
 });

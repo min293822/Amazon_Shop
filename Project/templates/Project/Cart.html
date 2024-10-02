@@ -9,7 +9,7 @@
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAiQrWU1_XPl-elP1fso3jrcZDEk_d4x-wlg&s" alt="noCartImage">
     <h3>You don't have any cart!</h3>
   </div>
-   <a href="http://127.0.0.1:8000/">
+   <a href="{% url 'products' %}">
      <button id="backProducts">
      Back To The Products
    </button>
@@ -33,7 +33,7 @@
     </tbody>
     <tfoot>
        <tr id="order">
-       <td colspan="3" ><a><button id="orderbtn">Order</button></a></td>
+       <td colspan="3" ><a><button id="orderbtn" data-url = "{url 'return' %}">Order</button></a></td>
        <td>Total:</td>       
        <td id="total">$ 0.00</td>
        </tr>
