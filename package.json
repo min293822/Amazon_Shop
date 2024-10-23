@@ -1,0 +1,16 @@
+{
+  "name": "Django",
+  "version": "1.0.0",
+  "main": "manage.py",
+  "repository": "https://github.com/min293822/Amazon_Shop.git",
+  "author": "min293822 <minkhant2t93822@gmail.com>",
+  "license": "MIT",
+  "description": "Be Convenience",
+  "private": false,
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "scripts": {
+    "start": "python manage.py runserver"
+  }
+}
