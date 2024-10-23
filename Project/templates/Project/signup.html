@@ -17,18 +17,13 @@
     <div class="show-forgot">
       <input type="checkbox" id="showPass">
       <label for="showPass">Show Password</label>
-      <a href="#" id="forgot">Forgot Password</a>
     </div>
     <button type="submit">Sign Up</button>
    </form>
   </div>
 
  <script src="{% static 'js/signup.js' %}">
-           {% if messages %}
-      {% for message in messages %}
-        alert("{{ message }}");
-      {% endfor %}
-    {% endif %}
+        alert("{{ messages }}");
  </script>
 
 </body>

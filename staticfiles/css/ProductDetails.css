@@ -1,0 +1,122 @@
+
+.productDetail{
+  margin: 25px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px 10px #00000086;
+  height: 850px;
+}
+
+.imgDetail{
+  overflow: scroll;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#imageDetail {
+  margin-right: 20px;
+  width: auto;
+  height: 400px;
+}
+
+#titleDetail{
+  margin-bottom: 20px;
+}
+
+.btns{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btns a{
+  position: relative;
+  text-decoration-line: none;
+  color: #fff;
+  padding: 0px;
+  top: 20px;
+}
+
+.btns a button{
+  background: #002adb;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btns a button:hover{
+  background: #001a86;
+}
+
+#related h2{
+  margin: 30px;
+  padding: 0;
+}
+
+hr{
+  margin: 0px 0px 30px 0px;
+}
+
+.custom-card-size .discoun{
+  position: relative;
+  padding: 0;
+  margin: 0;
+  height: 80px;
+  width: 80px;
+  background: #002adb;
+  padding: 20px 10px 20px 20px;
+  border-radius: 5px 0px 5px 100px;
+  text-align: center;
+  top: -330px;
+  left: 220px;
+  color: #fff;
+}
+
+.card-img-top{
+  max-width: 100%;
+}
+
+.img{
+  height: 350px;
+  overflow: scroll;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 -50px 0;
+}
+
+.custom-card-size{
+  border: 1px solid #000000a8;
+  padding: 10px;
+  margin-top: 10px;
+  height: 750px;
+}
+
+.custom-card-size .discoun span{
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  padding: 0;
+  font-weight: bold;
+  border: none;
+}
+
+.bodyDetail .discountContainer{
+  display: flex;
+}
+
+.bodyDetail .discountContainer #priceDetail{
+  text-decoration-line: line-through;
+  margin-right: 20px;
+}

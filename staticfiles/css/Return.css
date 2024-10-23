@@ -1,0 +1,161 @@
+#noOrder{
+  height: 500px;
+  width: 100%;
+  display: flex;
+  margin-top: 100px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#noOrder #content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#noOrder h3{
+  margin-top: 10px;
+  font-family: Arial;
+}
+
+#noOrder a{
+  text-decoration-line: none;
+  width: 50%;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#backToProducts{
+  width: 100%;
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 10px;
+  background: #1b53ff;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px 5px #00000086;
+}
+
+#backToProducts:hover{
+  background: #0032cd;
+  color: #fff;
+}
+
+tfoot td button{
+  padding: 10px;
+  font-size: 20px;
+  width: 100%;
+  margin: 0;
+  background: #1539ff;
+  color: #fff;
+  margin-top: 10px;
+}
+
+tfoot td button:hover{
+  background: #001bae;
+}
+
+#orderTable tbody tr td .amount{
+  text-align: center;
+}
+
+#orderTable tbody tr td .cancel{
+  color: #fff;
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  background: #ff1515bc;
+  display: block;
+}
+
+#orderTable tbody tr td .cancel:hover{
+  background: #ae0000b5;
+}
+
+#orderTable tbody tr td:last-child{
+  padding: 0;
+}
+
+#can, #canAll, #back, #backAll{
+  background: #1539ff;
+  color: #fff;
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100px;
+  margin-top: 20px;
+}
+
+#can:hover{
+  background: #001bae;
+}
+
+#canAll:hover{
+  background: #001bae;
+}
+
+#back:hover{
+  background: #001bae;
+}
+
+#backAll:hover{
+  background: #001bae;
+}
+
+#popupCancel, #popupContent{
+  display: flex;
+  color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  background: #0000008d;
+  border-radius: 10px;
+  padding: 30px;
+  position: relative;
+  width: 50%;
+}
+
+#popupContent{
+  height: 200px;
+}
+
+#popupName{
+  margin-bottom: 20px;
+}
+
+#popupCancel input{
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  background: #000;
+  width: 50px;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+}
+
+#popup, #cancelPopup{
+  display: none;
+  width: 1000px;
+  height: 1000px;
+  background: transparent;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.con{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+

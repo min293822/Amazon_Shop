@@ -99,7 +99,7 @@ tr td a #orderbtn:hover{
   background: #00137a;
 }
 
-.amount{
+tr .Amount{
   display: flex;
   justify-content: space-evenly;
   align-items: center;

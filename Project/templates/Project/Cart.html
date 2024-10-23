@@ -5,7 +5,7 @@
 {% block content %}
  
   <div id="noCart" class="container">
-       <div id="content">
+  <div id="content">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAiQrWU1_XPl-elP1fso3jrcZDEk_d4x-wlg&s" alt="noCartImage">
     <h3>You don't have any cart!</h3>
   </div>
@@ -28,18 +28,50 @@
      </tr>
     </thead>
     <tbody>
+      {% for cartitem in cartitems %}
       
-     <!-- table data will appear -->
+       <tr>
+         <td class="num"></td>
+         <input id="id" type="hidden" value="{{cartitem.id}}">
+         <td>{{cartitem.products.name}}</td>
+         <td>$ {{cartitem.products.price}}</td>
+         <td class="Amount">
+          <button id="decrease">-</button>
+          <p>{{cartitem.quantity}}</p>
+          <button id="increase">+</button>
+         </td>
+         
+         <td>$ {{cartitem.each_total}}</td>
+       </tr>
+      {% endfor %}
     </tbody>
     <tfoot>
        <tr id="order">
        <td colspan="3" ><a><button id="orderbtn" data-url = "{url 'return' %}">Order</button></a></td>
-       <td>Total:</td>       
-       <td id="total">$ 0.00</td>
+       <td>Total: {{cart.item_number}}</td>       
+       <td id="total">$ {{cart.total_amount}}</td>
        </tr>
        </tfoot>
    </table>
   </div>
-   <script src="{% static 'js/Cart.js' %}"></script>
+  <!-- <script src="{% static 'js/base.js' %}">
+    const haveCart = document.getElementById('haveCart');
+    const noCart = document.getElementById('noCart');
+    const id = document.getElementById('id');
+    if(id.value != ''){
+      noCart.style.display = 'none';
+      haveCart.style.display = 'block';
+    } else{
+      noCart.style.display = 'block';
+      haveCart.style.display = 'none';
+    }
+    
+    
+    let nos =  document.querySelector('.num');
+    for(let i=0; i<nos.length, i++){
+      nos.innerText = i +1;
+    }
+    
+   </script> -->
 {% endblock %}
 

@@ -4,25 +4,26 @@
   <div class="container-fluid">
     
     <div id="product-row" class="row">
-      {% for item in allproducts %}
-      <div class="col-md-4 card" data-category="{{ item.category }}" data-product-name="{{item.product.name}}">
+      {% for product in products %}
+      <div class="col-md-4 card"  data-product-name="{{product.name}}">
         <div class="custom-card-size">
+        <input type="hidden" value="{{product.id}}" class="proId">          
           <div class="img">
-            <img src="{{ item.product.image_url }}" class="card-img-top" alt="{{ item.product.name }}">
+            <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
           </div>
           <div class="disco">
-         <span class="card-text discount">{{ item.product.discount }}</span>   
+         <span class="card-text discount">{{ product.discount }} %</span>   
           </div>
           <div class="card-body">
-            <h5 class="card-title" id="product-name">{{ item.product.name }}</h5>
-            <p class="card-text color">Color - {{ item.product.color }}</p>
-            <p class="card-text size">{{ item.product.size }}</p>
+            <h5 class="card-title" id="product-name">{{ product.name }}</h5>
+            <p class="card-text color">Color - {{ product.color }}</p>
+            <p class="card-text size">{{ product.size }}</p>
             <div class="dis">
-            <p class="card-text price">$ {{ item.product.price }} </p>
-            <p class="card-text disOut">$ {{ item.product.discounted_price }}</p>
+            <p class="card-text price">$ {{ product.price }} </p>
+            <p class="card-text disOut">$ {{ product.discounted_price }}</p>
             </div>
-            <p class="card-text stock">{{ item.product.stock }} stock left</p>   
-            <p class="card-text advertise">{{ item.product.advertise }}</p>
+            <p class="card-text stock">{{ product.stock }} stock left</p>   
+            <p class="card-text advertise">{{ product.advertise }}</p>
             <a class="btn btn-primary">Add to cart</a>
           </div>
         </div>
@@ -30,114 +31,5 @@
       {% endfor %}
     </div>
     
-    <div id="sneaker-row" class="d-none">
-      {% for sneaker in sneakers %}
-      <div class="col-md-4 card" data-product-name="{sneaker.name}}">
-        <div class="custom-card-size">
-          <div class="img">
-            <img src="{{ sneaker.image_url }}" class="card-img-top" alt="{{ sneaker.name }}">
-          </div>
-          <div class="disco">
-          <span class="card-text discount">{{sneaker.discount }}</span>   
-          </div>          
-          <div class="card-body">
-            <h5 class="card-title" id="product-name">{{ sneaker.name }}</h5>
-            <p class="card-text color">Color - {{ sneaker.color }}</p>
-            <p class="card-text size">Size - {{ sneaker.size }}</p>
-            <div class="dis">
-            <p class="card-text price">{{ sneaker.price }} </p>
-            <p class="card-text disOut"></p>
-            </div>
-            <p class="card-text stock">{{ sneaker.stock }} stock left</p>   
-            <p class="card-text advertise">{{sneaker.advertise }}</p>
-            <a class="btn btn-primary">Add to cart</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-    
-    <div id="watch-row" class="d-none">
-      {% for watch in watches %}
-      <div class="col-md-4 card" data-product-name="{{watch.name}}">
-        <div class="custom-card-size">
-          <div class="img">
-            <img src="{{ watch.image_url }}" class="card-img-top" alt="{{ watch.name }}">
-          </div>
-          <div class="disco">
-          <span class="card-text discount">{{ watch.discount }}</span>   
-          </div>
-          <div class="card-body">
-            <h5 class="card-title" id="product-name">{{ watch.name }}</h5>
-            <p class="card-text color">Color - {{ watch.color }}</p>
-            <div class="dis">
-            <p class="card-text price">{{ watch.price }} </p>
-            <p class="card-text disOut"></p>
-            </div>
-            <p class="card-text stock">{{ watch.stock }} stock left</p>   
-            <p class="card-text advertise">{{ watch.advertise }}</p>
-            <a class="btn btn-primary">Add to cart</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-
-   <div id="pant-row" class="d-none">
-      {% for pant in pants %}
-      <div class="col-md-4 card" data-product-name="{{pant.name}}">
-        <div class="custom-card-size">
-          <div class="img">
-            <img src="{{ pant.image_url }}" class="card-img-top" alt="{{ pant.name }}">
-          </div>
-          <div class="disco">
-          <span class="card-text discount">{{ pant.discount }}</span>   
-          </div>
-          <div class="card-body">
-            <h5 class="card-title" id="product-name">{{ pant.name }}</h5>
-            <p class="card-text color">Color - {{ pant.color }}</p>
-            <p class="card-text size">Size - {{ pant.size }}</p>
-            <div class="dis">
-            <p class="card-text price">{{ pant.price }} </p>
-            <p class="card-text disOut"></p>
-            </div>
-            <p class="card-text stock">{{ pant.stock }} stock left</p>   
-            <p class="card-text advertise">{{ pant.advertise }}</p>
-            <a class="btn btn-primary">Add to cart</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-
-   <div id="cloth-row" class="d-none">
-      {% for cloth in clothes %}
-      <div class="col-md-4 card" data-product-name="{{cloth.name}}">
-        <div class="custom-card-size">
-          <div class="img">
-            <img src="{{ cloth.image_url }}" class="card-img-top" alt="{{ cloth.name }}">
-          </div>
-          <div class="disco">
-          <span class="card-text discount">{{ cloth.discount }}</span>   
-          </div>
-          <div class="card-body">
-            <h5 class="card-title" id="product-name">{{ cloth.name }}</h5>
-            <p class="card-text color">Color - {{ cloth.color }}</p>
-            <p class="card-text size">Size - {{ cloth.size }}</p>
-            <div class="dis">
-            <p class="card-text price">{{ cloth.price }} </p>
-            <p class="card-text disOut"></p>
-            </div>
-            <p class="card-text stock">{{ cloth.stock }} stock left</p>   
-            <p class="card-text advertise">{{ cloth.advertise }}</p>
-            <a class="btn btn-primary">Add to cart</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
   </div>
-  
-   <script src="{% static 'js/Allproduct.js' %}"></script>
-
 {% endblock %}
